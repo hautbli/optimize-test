@@ -22,6 +22,6 @@ def create_users_async(user_count):
     User = get_user_model()
     for i in range(user_count):
         uuid = uuid4()
-        1/0
+        # 1/0 에러
         user = User.objects.create(username=f'user{uuid}')
         print('user_created', user.username)
