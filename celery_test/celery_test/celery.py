@@ -25,3 +25,16 @@ def create_users_async(user_count):
         # 1/0 에러
         user = User.objects.create(username=f'user{uuid}')
         print('user_created', user.username)
+
+
+from django.core.mail import EmailMessage
+
+
+@shared_task
+def send_email_async():
+    email = ''  # to email
+    subject = 'Django를 통해 발송된 메일입니다.'
+    message = 'Google SMTP에서 발송되었습니다.'
+    mail = EmailMessage(subject, message, to=(email,))
+    mail.send()
+    print("send email")
