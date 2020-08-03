@@ -37,4 +37,4 @@ def send_email_async():
     message = 'Google SMTP에서 발송되었습니다.'
     mail = EmailMessage(subject, message, to=(email,))
     mail.send()
-    print("send email")
+    print('email !!!')

@@ -124,6 +124,7 @@ sentry_sdk.init(
     send_default_pii=True,
 
 )
+
 # email 전송
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -133,3 +134,13 @@ EMAIL_HOST_USER = ''  # ex) myid@gmail.com
 EMAIL_HOST_PASSWORD = ''  # ex) P@ssw0rd
 SERVER_EMAIL = ''  # ex) myid@gmail.com
 DEFAULT_FROM_MAIL = EMAIL_HOST_USER  # ex) bum752
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
